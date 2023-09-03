@@ -51,37 +51,61 @@ def upgrade():
         print(current_tool)
         # ///////
         if answer == 1 and money > tools[1]["price"]:
-            if tools[1]['name'] in tools_used:
-                print("You have this tool already")
+            if current_tool == "Teeth":
+                if tools[1]['name'] in tools_used:
+                    print("You have this tool already")
+                else:
+                    current_tool = tools[1]['name']
+                    tools_used.append(current_tool)
+                    money -= tools[1]["price"]
             else:
-                current_tool = tools[1]['name']
-                tools_used.append(current_tool)
-                money -= tools[1]["price"]
+                print(""" 
+                You can't skip a step when it comes to the tools you buy.
+                You must buy the tools in order according to price.
+                """)
         elif answer == 2 and money > tools[2]["price"]:
-            if tools[2]['name'] in tools_used:
-                print("You have this tool already")
+            if current_tool == "Rusty Scissors":
+                if tools[2]['name'] in tools_used:
+                    print("You have this tool already")
+                else:
+                    current_tool = tools[2]['name']
+                    tools_used.append(current_tool)
+                    print(tools_used)
+                    money -= tools[2]["price"]
+                current_tool = tools[2]["name"]
             else:
-                current_tool = tools[2]['name']
-                tools_used.append(current_tool)
-                print(tools_used)
-                money -= tools[2]["price"]
-            current_tool = tools[2]["name"]
+                print(""" 
+                You can't skip a step when it comes to the tools you buy.
+                You must buy the tools in order according to price.
+                """)
         elif answer == 3 and money > tools[3]["price"]:
-            if tools[3]['name'] in tools_used:
-                print("You have this tool already")
+            if current_tool == "Push Mower":
+                if tools[3]['name'] in tools_used:
+                    print("You have this tool already")
+                else:
+                    current_tool = tools[3]['name']
+                    tools_used.append(current_tool)
+                    print(tools_used)
+                    money -= tools[3]["price"]
             else:
-                current_tool = tools[3]['name']
-                tools_used.append(current_tool)
-                print(tools_used)
-                money -= tools[3]["price"]
+                print(""" 
+                You can't skip a step when it comes to the tools you buy.
+                You must buy the tools in order according to price.
+                """)
         elif answer == 4 and money > tools[4]["price"]:
-            if tools[4]['name'] in tools_used:
-                print("You have this tool already")
+            if current_tool == "Fancy Mower":
+                if tools[4]['name'] in tools_used:
+                    print("You have this tool already")
+                else:
+                    current_tool = tools[4]['name']
+                    tools_used.append(current_tool)
+                    print(tools_used)
+                    money -= tools[4]["price"]
             else:
-                current_tool = tools[4]['name']
-                tools_used.append(current_tool)
-                print(tools_used)
-                money -= tools[4]["price"]
+                print(""" 
+                You can't skip a step when it comes to the tools you buy.
+                You must buy the tools in order according to price.
+                """)
         else:
             print("""
             You dont have the funds for that tool.
