@@ -50,57 +50,53 @@ def upgrade():
         # Testing
         print(current_tool)
         # ///////
-        if answer == 1 and money > tools[1]["price"]:
-            if current_tool == "Teeth":
-                if tools[1]['name'] in tools_used:
-                    print("You have this tool already")
-                else:
-                    current_tool = tools[1]['name']
-                    tools_used.append(current_tool)
-                    money -= tools[1]["price"]
+        if answer == 1 and money >= tools[1]["price"]:
+            if tools[1]['name'] in tools_used:
+                print("You have this tool already")
+            elif current_tool == "Teeth":
+                current_tool = tools[1]['name']
+                tools_used.append(current_tool)
+                money -= tools[1]["price"]
             else:
                 print(""" 
                 You can't skip a step when it comes to the tools you buy.
                 You must buy the tools in order according to price.
                 """)
-        elif answer == 2 and money > tools[2]["price"]:
-            if current_tool == "Rusty Scissors":
-                if tools[2]['name'] in tools_used:
-                    print("You have this tool already")
-                else:
-                    current_tool = tools[2]['name']
-                    tools_used.append(current_tool)
-                    print(tools_used)
-                    money -= tools[2]["price"]
+        elif answer == 2 and money >= tools[2]["price"]:
+            if tools[2]['name'] in tools_used:
+                print("You have this tool already")
+            elif current_tool == "Rusty Scissors":
+                current_tool = tools[2]['name']
+                tools_used.append(current_tool)
+                print(tools_used)
+                money -= tools[2]["price"]
                 current_tool = tools[2]["name"]
             else:
                 print(""" 
                 You can't skip a step when it comes to the tools you buy.
                 You must buy the tools in order according to price.
                 """)
-        elif answer == 3 and money > tools[3]["price"]:
-            if current_tool == "Push Mower":
-                if tools[3]['name'] in tools_used:
-                    print("You have this tool already")
-                else:
-                    current_tool = tools[3]['name']
-                    tools_used.append(current_tool)
-                    print(tools_used)
-                    money -= tools[3]["price"]
+        elif answer == 3 and money >= tools[3]["price"]:
+            if tools[3]['name'] in tools_used:
+                print("You have this tool already")
+            elif current_tool == "Push Mower":
+                current_tool = tools[3]['name']
+                tools_used.append(current_tool)
+                print(tools_used)
+                money -= tools[3]["price"]
             else:
                 print(""" 
                 You can't skip a step when it comes to the tools you buy.
                 You must buy the tools in order according to price.
                 """)
-        elif answer == 4 and money > tools[4]["price"]:
-            if current_tool == "Fancy Mower":
-                if tools[4]['name'] in tools_used:
-                    print("You have this tool already")
-                else:
-                    current_tool = tools[4]['name']
-                    tools_used.append(current_tool)
-                    print(tools_used)
-                    money -= tools[4]["price"]
+        elif answer == 4 and money >= tools[4]["price"]:
+            if tools[4]['name'] in tools_used:
+                print("You have this tool already")
+            elif current_tool == "Fancy Mower":
+                current_tool = tools[4]['name']
+                tools_used.append(current_tool)
+                print(tools_used)
+                money -= tools[4]["price"]
             else:
                 print(""" 
                 You can't skip a step when it comes to the tools you buy.
@@ -159,7 +155,7 @@ def win_conditions():
         return True
 
     else:
-        print(f"You have {money} dollars and are currently using {current_tool}")
+        print(f"You have {money} dollars and are currently using your {current_tool}")
         game_loop()
 
     return 0
