@@ -4,7 +4,7 @@ tools = [
     {"name": "Rusty Scissors", "income":5, "price": 5},
     {"name": "Push Mower", "income":50, "price": 25},
     {"name": "Fancy Mower", "income":100, "price": 250},
-    {"name": "The Team", "income":250, "price": 500},
+    {"name": "Starving Students", "income":250, "price": 500},
 ]
 
 ## Game State
@@ -140,7 +140,7 @@ def mow():
         money += 50
     elif current_tool == "Fancy Mower":
         money += 100
-    elif current_tool == "The Team":
+    elif current_tool == "Starving Students":
         money += 250
     return 0
 
@@ -150,12 +150,14 @@ def mow():
 # If true, print a win message then return true
 # If false, print the players money total and tool and run game_loop()
 def win_conditions():
-    if current_tool == "The Team" and money >= 1000:
+    if current_tool == "Starving Students" and money >= 1000:
         print("You won!")
         return True
 
     else:
-        print(f"You have {money} dollars and are currently using your {current_tool}")
+        print(f"""
+        You have {money} dollars and are currently using your {current_tool}
+        """)
         game_loop()
 
     return 0
