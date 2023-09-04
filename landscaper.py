@@ -21,13 +21,16 @@ money = 0
 print("Welcome to Landscaper.")
 def start():
     
-    user_Answer = int(input("Would you like to mow or buy?. Enter 1 for mow, enter 2 for buy :"))
-    if user_Answer == 1:
-        return "mow"
-    elif user_Answer == 2:
-        return "buy"
+    user_Answer = input("Would you like to mow or buy?. Enter 1 for mow, enter 2 for buy : ")
+    if user_Answer.isalpha():
+            print("You must use numbers 1 or 2")
     else:
-        return "improper input"
+        if int(user_Answer) == 1:
+            return "mow"
+        elif int(user_Answer) == 2:
+            return "buy"
+        else:
+            return "improper input"
  
 ## selection function should
 # - if user input is 1, run the mow function
@@ -52,7 +55,9 @@ def upgrade():
         # ///////
         if answer == 1 and money >= tools[1]["price"]:
             if tools[1]['name'] in tools_used:
-                print("You have this tool already")
+                print("""
+                You have this tool already
+                """)
             elif current_tool == "Teeth":
                 current_tool = tools[1]['name']
                 tools_used.append(current_tool)
@@ -122,7 +127,9 @@ def selection(select):
     elif select == "buy":
         upgrade()
     else:
-        print("wrong input")
+        print("""
+        wrong input.
+        """)
     return select
 
 
