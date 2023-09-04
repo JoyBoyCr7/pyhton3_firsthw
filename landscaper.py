@@ -145,7 +145,7 @@ def mow():
     return 0
 
 
-## the win_conditions functions
+## the win_conditions functionss
 # check if the current tool is the team and money is 1000
 # If true, print a win message then return true
 # If false, print the players money total and tool and run game_loop()
