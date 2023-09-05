@@ -22,7 +22,7 @@ print("Welcome to Landscaper.")
 def start():
     
     user_Answer = input("Would you like to mow or buy?. Enter 1 for mow, enter 2 for buy : ")
-    if user_Answer.isalpha():
+    if user_Answer.isalpha() or user_Answer.isspace() or user_Answer == "":
             print("You must use numbers 1 or 2")
     else:
         if int(user_Answer) == 1:
@@ -69,7 +69,9 @@ def upgrade():
                 """)
         elif answer == 2 and money >= tools[2]["price"]:
             if tools[2]['name'] in tools_used:
-                print("You have this tool already")
+                print("""
+                You have this tool already
+                """)
             elif current_tool == "Rusty Scissors":
                 current_tool = tools[2]['name']
                 tools_used.append(current_tool)
@@ -83,7 +85,9 @@ def upgrade():
                 """)
         elif answer == 3 and money >= tools[3]["price"]:
             if tools[3]['name'] in tools_used:
-                print("You have this tool already")
+                print("""
+                You have this tool already
+                """)
             elif current_tool == "Push Mower":
                 current_tool = tools[3]['name']
                 tools_used.append(current_tool)
@@ -96,7 +100,9 @@ def upgrade():
                 """)
         elif answer == 4 and money >= tools[4]["price"]:
             if tools[4]['name'] in tools_used:
-                print("You have this tool already")
+                print("""
+                You have this tool already
+                """)
             elif current_tool == "Fancy Mower":
                 current_tool = tools[4]['name']
                 tools_used.append(current_tool)
@@ -107,11 +113,16 @@ def upgrade():
                 You can't skip a step when it comes to the tools you buy.
                 You must buy the tools in order according to price.
                 """)
+        elif answer > 4:
+            print("""
+            thats not one of our possible choices
+            """)
         else:
             print("""
             You dont have the funds for that tool.
             
             """)
+    
     else:
         print("Your short on funds")
     # Testing
@@ -158,7 +169,10 @@ def mow():
 # If false, print the players money total and tool and run game_loop()
 def win_conditions():
     if current_tool == "Starving Students" and money >= 1000:
-        print("You won!")
+        print(f"""
+        You've exceeded $1000 while also having {current_tool} work for you
+        You win!
+        """)
         return True
 
     else:
